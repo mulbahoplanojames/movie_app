@@ -54,7 +54,6 @@ const Hero = () => {
           Get Started
         </button>
       </motion.div>
-      <p>hsdklklk</p>
     </ImagesSlider>
   );
 };

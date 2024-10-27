@@ -54,7 +54,6 @@ const TvSeriesHero = () => {
           Get Started
         </button>
       </motion.div>
-      <p>hsdklklk</p>
     </ImagesSlider>
   );
 };

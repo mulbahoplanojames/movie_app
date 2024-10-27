@@ -54,7 +54,6 @@ const MoviesHero = () => {
           Watch Now
         </button>
       </motion.div>
-      <p>hsdklklk</p>
     </ImagesSlider>
   );
 };
