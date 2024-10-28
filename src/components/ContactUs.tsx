@@ -60,7 +60,7 @@ const ContactUs = () => {
               <input
                 type="text"
                 placeholder="Leroy Jenkins"
-                className="block w-full h-10 border-2 px-4 rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 dark:bg-gray-100"
+                className="block w-full h-10 border-2 px-4 rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:dark:ring-primaryClr dark:bg-gray-100"
               />
             </label>
             <label className="block">
@@ -68,19 +68,19 @@ const ContactUs = () => {
               <input
                 type="email"
                 placeholder="leroy@jenkins.com"
-                className="block w-full rounded-md h-10 px-4 border-2 shadow-sm focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 dark:bg-gray-100"
+                className="block w-full rounded-md h-10 px-4 border-2 shadow-sm focus:ring focus:ring-opacity-75 focus:dark:ring-primaryClr dark:bg-gray-100"
               />
             </label>
             <label className="block">
               <span className="mb-2 inline-block">Message</span>
               <textarea
                 rows={3}
-                className="block w-full rounded-md h-32 border-2 focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 dark:bg-gray-100"
+                className="block w-full rounded-md h-32 border-2 focus:ring focus:ring-opacity-75 focus:dark:ring-primaryClr dark:bg-gray-100"
               ></textarea>
             </label>
             <button
               type="button"
-              className="px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 dark:bg-violet-600 dark:text-gray-50 focus:dark:ring-violet-600 hover:dark:ring-violet-600"
+              className="px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-primaryClr dark:text-gray-50 focus:dark:ring-primaryClr hover:dark:ring-primaryClr"
             >
               Submit
             </button>
