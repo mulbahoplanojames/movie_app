@@ -14,7 +14,6 @@ import { ThumbsUp } from "lucide-react";
 
 const UpcomingMovies = async () => {
   const result = await handleFetchUpcomingMovies();
-  // console.log(result);
 
   return (
     <>
@@ -39,7 +38,7 @@ const UpcomingMovies = async () => {
                   key={movie.id}
                   className="md:basis-1/2 lg:basis-1/3"
                 >
-                  <Link href={`/movie/${movie.id}`}>
+                  <Link href={`/upcoming-movie/${movie.id}`}>
                     <div className="md:w-[370px] w-[350px] h-fit flex flex-col">
                       <div className="w-full h-[400px] relative overflow-hidden rounded-lg">
                         <Image

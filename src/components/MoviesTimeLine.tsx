@@ -15,6 +15,7 @@ const MoviesTimeLine = async () => {
     handleFetchPopularMovies(),
     handleFetchTopRatedMovies(),
   ]);
+
   const data = [
     {
       title: "2024",

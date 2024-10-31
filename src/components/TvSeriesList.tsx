@@ -1,13 +1,13 @@
-import { handleFetchTvSeries } from "@/lib/utils";
 import { UpcomingMoviesInterface } from "@/types/types";
 import Link from "next/link";
 
 import Image from "next/image";
 import { ThumbsUp } from "lucide-react";
+import { handleFetchTvSeries } from "@/lib/utils";
 
 const TvSeriesList = async () => {
   const result = await handleFetchTvSeries();
-  console.log(result);
+  // console.log(result);
 
   return (
     <>
@@ -20,22 +20,24 @@ const TvSeriesList = async () => {
         </h1>
 
         <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 md:gap-10 gap-6">
-          {result.length > 0 &&
-            result.map((movie: UpcomingMoviesInterface) => (
-              <Link href={`/movie/${movie.id}`} key={movie.id}>
+          {result?.length > 0 &&
+            result.map((tvShow: UpcomingMoviesInterface) => (
+              <Link href={`/tv-show/${tvShow.id}`} key={tvShow.id}>
                 <div className="md:w-full w-full h-fit flex flex-col">
                   <div className="w-full h-[400px] relative overflow-hidden rounded-lg">
                     <Image
-                      src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                      alt={movie.title}
+                      src={`https://image.tmdb.org/t/p/w500${tvShow.poster_path}`}
+                      alt={tvShow.title}
                       fill
                       className="object-cover"
                     />
                   </div>
                   <div className="flex justify-between items-center pt-5 px-2">
-                    <p className=" font-bold text-lg truncate">{movie.title}</p>
+                    <p className=" font-bold text-lg truncate">
+                      {tvShow.title}
+                    </p>
                     <p className="text-primaryClr font-semibold">
-                      {movie.release_date}
+                      {tvShow.release_date}
                     </p>
                   </div>
                   <div className="flex justify-between items-center pt-2 px-2">
@@ -44,7 +46,7 @@ const TvSeriesList = async () => {
                     </p>
                     <p className=" font-bold text-sm flex items-center gap-1">
                       <ThumbsUp />
-                      {movie.vote_count}
+                      {tvShow.vote_count}
                     </p>
                   </div>
                 </div>
