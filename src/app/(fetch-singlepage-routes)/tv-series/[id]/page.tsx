@@ -2,8 +2,29 @@ import Image from "next/image";
 
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { Calendar, Play, Share2, ThumbsUp } from "lucide-react";
+import { MoviesInterface } from "@/types/types";
+
+export const generateStaticParams = async () => {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`
+  );
+  const data = await res.json();
+  return data.results.map((movie: MoviesInterface) => ({
+    id: movie.id.toString(),
+  }));
+};
+
+const handleTvSeriesMovieFetch = async (id: string) => {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.API_KEY}&language=en-US`
+  );
+  const data = await res.json();
+  return data;
+};
 
 const TvSeriesMoviePreview = async ({ params }: { params: { id: string } }) => {
+  const result = await handleTvSeriesMovieFetch(params.id);
+
   return (
     <>
       <div className="md:h-[44rem] h-[62rem] md:pt-24 pt-16 w-full rounded-md bg-neutral-950 relative flex items-center antialiased">
@@ -21,7 +42,7 @@ const TvSeriesMoviePreview = async ({ params }: { params: { id: string } }) => {
               New Episodes
             </p>
             <h1 className="relative z-10 text-4xl md:text-7xl  bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600  font-sans font-bold pb-5">
-              {result.title}
+              {result.title ? result.title : result.name}
             </h1>
             <div className="flex items-center gap-4 flex-wrap md:pb-10 pb-8">
               <p className="text-black bg-white border-2 border-white text-sm  px-2">
@@ -30,14 +51,16 @@ const TvSeriesMoviePreview = async ({ params }: { params: { id: string } }) => {
               <p className="text-white border-2 border-white text-sm  px-2">
                 HD
               </p>
-              <p className="text-white text-lg">Romance, Drama</p>
+              <p className="text-white text-lg">TV Series</p>
               <p className="text-white text-lg flex items-center gap-2">
                 <Calendar className="size-5 text-primaryClr" />
-                {result.release_date}
+                {result.release_date
+                  ? result.release_date
+                  : result.first_air_date}
               </p>
               <p className="text-white text-lg flex items-center gap-2">
                 <ThumbsUp className="size-5 text-primaryClr" />{" "}
-                {result.vote_average}
+                {result.vote_average ? result.vote_average : 0}
               </p>
             </div>
             <p className="text-white pb-5">{result.overview}</p>
