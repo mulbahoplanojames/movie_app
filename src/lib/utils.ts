@@ -25,18 +25,6 @@ export const handleFetchUpcomingMovies = async () => {
   return result;
 };
 
-export const fetchUpcomingSingleMovie = async ({
-  params,
-}: {
-  params: { id: string };
-}) => {
-  const res = await fetch(
-    `https://api.themoviedb.org/3/movie/${params.id}?api_key=${API_KEY}&language=en-US`
-  );
-  const data = await res.json();
-  return data;
-};
-
 //? ------------------------------------------------------------------------------
 
 // Fetching Top Rated Movies Data

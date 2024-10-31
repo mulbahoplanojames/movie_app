@@ -47,7 +47,7 @@ const MoviesTimeLine = async () => {
               topRatedMovies
                 .slice(0, 4)
                 .map((movie: UpcomingMoviesInterface) => (
-                  <Link href={`/movie/${movie.id}`} key={movie.id}>
+                  <Link href={`/top-rated-movie/${movie.id}`} key={movie.id}>
                     <Image
                       src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
                       alt={movie.title}
