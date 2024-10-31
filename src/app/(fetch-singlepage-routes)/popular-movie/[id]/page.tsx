@@ -2,11 +2,31 @@ import Image from "next/image";
 
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { Calendar, Play, Share2, ThumbsUp } from "lucide-react";
-import { fetchUpcomingSingleMovie } from "@/lib/utils";
+import { MoviesInterface } from "@/types/types";
+
+export const generateStaticParams = async () => {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`
+  );
+
+  const data = await res.json();
+
+  return data.results.map((movie: MoviesInterface) => ({
+    id: movie.id.toString(),
+  }));
+};
+
+const handlePopularMovieFetch = async (id: string) => {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}&language=en-US`
+  );
+
+  const data = await res.json();
+  return data;
+};
 
 const MoviePreview = async ({ params }: { params: { id: string } }) => {
-  const result = await fetchUpcomingSingleMovie({ params: { id: params.id } });
-
+  const result = await handlePopularMovieFetch(params.id);
   return (
     <>
       <div className="md:h-[44rem] h-[62rem] md:pt-24 pt-16 w-full rounded-md bg-neutral-950 relative flex items-center antialiased">
@@ -33,7 +53,7 @@ const MoviePreview = async ({ params }: { params: { id: string } }) => {
               <p className="text-white border-2 border-white text-sm  px-2">
                 HD
               </p>
-              <p className="text-white text-lg">Romance, Drama</p>
+              <p className="text-white text-lg">Popular Movie</p>
               <p className="text-white text-lg flex items-center gap-2">
                 <Calendar className="size-5 text-primaryClr" />
                 {result.release_date}

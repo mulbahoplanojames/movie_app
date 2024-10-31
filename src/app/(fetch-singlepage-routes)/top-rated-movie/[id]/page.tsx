@@ -55,7 +55,7 @@ const TopRatedMoviePreview = async ({ params }: { params: { id: string } }) => {
               <p className="text-white border-2 border-white text-sm  px-2">
                 HD
               </p>
-              <p className="text-white text-lg">Romance, Drama</p>
+              <p className="text-white text-lg">Top Rated Movie</p>
               <p className="text-white text-lg flex items-center gap-2">
                 <Calendar className="size-5 text-primaryClr" />
                 {result.release_date}
