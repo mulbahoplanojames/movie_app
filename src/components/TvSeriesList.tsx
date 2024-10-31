@@ -22,7 +22,7 @@ const TvSeriesList = async () => {
         <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 md:gap-10 gap-6">
           {result?.length > 0 &&
             result.map((tvShow: UpcomingMoviesInterface) => (
-              <Link href={`/tv-show/${tvShow.id}`} key={tvShow.id}>
+              <Link href={`/tv-series/${tvShow.id}`} key={tvShow.id}>
                 <div className="md:w-full w-full h-fit flex flex-col">
                   <div className="w-full h-[400px] relative overflow-hidden rounded-lg">
                     <Image

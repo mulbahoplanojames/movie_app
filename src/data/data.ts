@@ -8,7 +8,7 @@ export const navLinks: NavLinksInterface[] = [
   },
   {
     label: "TV Show",
-    path: "/tv-show",
+    path: "/tv-series",
   },
   {
     label: "Pricing",
