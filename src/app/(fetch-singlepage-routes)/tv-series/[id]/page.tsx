@@ -2,19 +2,8 @@ import Image from "next/image";
 
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { Calendar, Play, Share2, ThumbsUp } from "lucide-react";
-import { fetchUpcomingSingleMovie } from "@/lib/utils";
 
-const MoviePreview = async ({ params }: { params: { id: string } }) => {
-  // export const generateStaticProps = async () => {
-  //   const res = await fetch(
-  //     `https://api.themoviedb.org/3/tv/${params.id}?api_key=${API_KEY}&language=en-US`
-  //   );
-  //   const data = await res.json();
-  //   return data;
-  // };
-
-  const result = await fetchUpcomingSingleMovie({ params: { id: params.id } });
-
+const TvSeriesMoviePreview = async ({ params }: { params: { id: string } }) => {
   return (
     <>
       <div className="md:h-[44rem] h-[62rem] md:pt-24 pt-16 w-full rounded-md bg-neutral-950 relative flex items-center antialiased">
@@ -73,4 +62,4 @@ const MoviePreview = async ({ params }: { params: { id: string } }) => {
   );
 };
 
-export default MoviePreview;
+export default TvSeriesMoviePreview;

@@ -7,7 +7,6 @@ import { ThumbsUp } from "lucide-react";
 
 const TvSeries = async () => {
   const result = await handleFetchTvSeries();
-  console.log(result);
 
   return (
     <>
