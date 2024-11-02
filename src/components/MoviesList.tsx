@@ -6,7 +6,7 @@ import Image from "next/image";
 import { ThumbsUp } from "lucide-react";
 
 const MoviesList = async () => {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  // await new Promise((resolve) => setTimeout(resolve, 2000));
   const result = await handleFetchPopularMovies();
   // console.log(result);
 
